@@ -34,6 +34,15 @@ def get_stats(a):
 def matrix_multiply(X,Y):
     return [[sum(a*b for a,b in zip(X_row,Y_col)) for Y_col in zip(*Y)] for X_row in X]
 
+def matrix_add(X,Y):
+    return [[X[i][k]+Y[i][k] for k in range(0,len(X[0]))] for i in range(0,len(X))]
+
+def cov_div(X,n):
+    return [[X[i][j]/float(n) for j in range(0,len(X[0]))] for i in range(0,len(X))]
+
+def cov_diagonal(X):
+    return [[X[i][j] if(i==j) else 0 for j in range(0,len(X[0]))] for i in range(0,len(X))]
+
 def transpose(X):
     return zip(*X) 
 
